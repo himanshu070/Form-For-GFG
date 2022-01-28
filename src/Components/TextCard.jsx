@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import CardActions from "@mui/material/CardActions";
@@ -8,7 +8,14 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 import "../CSS/TextCard.css";
-const TextCard = (props) => {
+const TextCard = ({title, value, setInputVal, name}) => {
+  
+  const handleChange = (e)=>{
+    setInputVal({
+      ...value,
+      [name] : e.target.value
+    })
+  }
   return (
     <>
       <div id="card-div">
@@ -20,10 +27,10 @@ const TextCard = (props) => {
               variant="h5"
               component="div"
             >
-              {props.title}
+              {title}
             </Typography>
           </CardContent>
-          <inputField  className="inputField">
+          <inputField className="inputField">
             <Box
               component="form"
               sx={{
@@ -36,6 +43,7 @@ const TextCard = (props) => {
                 id="standard-basic"
                 label="Your answer"
                 variant="standard"
+                onChange={handleChange}
               />
             </Box>
           </inputField>
