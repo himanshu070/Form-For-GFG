@@ -6,6 +6,10 @@ import "./CSS/App.css";
 import { useState } from "react";
 import CheckCard from "./Components/CheckCard";
 import Alert from "@mui/material/Alert";
+import fetch from 'isomorphic-fetch';
+
+
+
 function App() {
   const [inputVal, setInputVal] = useState({
     name: "",
@@ -47,8 +51,22 @@ function App() {
 
     if (flag){
       setIsAlert(false);
-      setIsSucess(true);
-      console.log(inputVal);
+
+      fetch(`${API}/https://gfgkiit-backend.herokuapp.com/upload-form`, {
+        method: 'POST',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(inputVal)
+    })
+        .then(response => {
+            console(response.json());
+            setIsSucess(true);
+
+        })
+        .catch(err => console.log(err));
+
     } 
   };
   
@@ -57,6 +75,8 @@ function App() {
     let parsedData = await data.json();
     console.log(parsedData);
   }
+
+
 
   return (
     <div className="app-js">
