@@ -8,7 +8,7 @@ import Checkbox from "@mui/material/Checkbox";
 
 const CheckCard = ({ title, value, setInputVal, name }) => {
   const [Marketing, setMarketing] = useState(false);
-  const [Content, setContent] = useState(true);
+  const [Content, setContent] = useState(false);
   const [UIUX, setUIUX] = useState(false);
 
   // Fucntion For Changing Input value
@@ -20,7 +20,7 @@ const CheckCard = ({ title, value, setInputVal, name }) => {
 
     setInputVal({
       ...value,
-      domain: array,
+      name: array,
     });
   };
 

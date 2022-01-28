@@ -20,7 +20,6 @@ const TextCard = ({ title,myId, value, setInputVal, name }) => {
 
       console.log("dgdg")
     }
-
   };
   return (
     <>
