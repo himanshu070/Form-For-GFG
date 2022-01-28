@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
@@ -6,21 +6,20 @@ import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 
-
-const ToggleCard = ({title, value, setInputVal, name}) => {
-  const handleChange = (e)=>{
+const ToggleCard = ({ title, value, setInputVal, name }) => {
+  const handleChange = (e) => {
     setInputVal({
       ...value,
-      [name]: e.target.value
-    })
-  }
+      [name]: e.target.value,
+    });
+  };
   return (
     <>
       <div id="card-div">
         <Card id="card" sx={{ maxWidth: 345 }}>
           <CardContent>
             <Typography
-              class="card-title"
+              className="card-title"
               gutterBottom
               variant="h5"
               component="div"

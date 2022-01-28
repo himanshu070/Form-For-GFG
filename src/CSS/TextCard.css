@@ -14,6 +14,7 @@
     min-width: 60vw;
     min-height: 20vh;
     border-radius: 13px;
+    padding: 0.5rem 3rem;
 }
 .card-title{
     font-size: 23px;
@@ -27,4 +28,7 @@
     list-style: none;
    padding-left: 0;
    font-size: 17px;
+}
+.error {
+    border: 1px solid red;
 }

@@ -11,8 +11,7 @@ const CheckCard = ({ title, value, setInputVal, name }) => {
   const [Content, setContent] = useState(true);
   const [UIUX, setUIUX] = useState(false);
 
-
-  // Fucntion For Changing Input value 
+  // Fucntion For Changing Input value
   const inputHandler = () => {
     let array = [];
     if (Marketing) array.push("Marketing");
@@ -36,7 +35,7 @@ const CheckCard = ({ title, value, setInputVal, name }) => {
         <Card id="card" sx={{ maxWidth: 345 }}>
           <CardContent>
             <Typography
-              class="card-title"
+              className="card-title"
               gutterBottom
               variant="h5"
               component="div"

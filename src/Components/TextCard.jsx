@@ -5,21 +5,20 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 import "../CSS/TextCard.css";
-const TextCard = ({title, value, setInputVal, name}) => {
-  
-  const handleChange = (e)=>{
+const TextCard = ({ title, value, setInputVal, name }) => {
+  const handleChange = (e) => {
     setInputVal({
       ...value,
-      [name] : e.target.value
-    })
-  }
+      [name]: e.target.value,
+    });
+  };
   return (
     <>
       <div id="card-div">
         <Card id="card" sx={{ maxWidth: 345 }}>
           <CardContent>
             <Typography
-              class="card-title"
+              className="card-title"
               gutterBottom
               variant="h5"
               component="div"
@@ -27,7 +26,7 @@ const TextCard = ({title, value, setInputVal, name}) => {
               {title}
             </Typography>
           </CardContent>
-          <inputField className="inputField">
+          <inputfield className="inputField">
             <Box
               component="form"
               sx={{
@@ -43,7 +42,8 @@ const TextCard = ({title, value, setInputVal, name}) => {
                 onChange={handleChange}
               />
             </Box>
-          </inputField>
+            
+          </inputfield>
         </Card>
       </div>
     </>
