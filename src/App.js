@@ -8,6 +8,7 @@ import CheckCard from "./Components/CheckCard";
 import Alert from "@mui/material/Alert";
 import fetch from "isomorphic-fetch";
 import Loading from "./Components/Loading";
+import FormSubmitted from "./Components/FormSubmitted";
 
 function App() {
   const [inputVal, setInputVal] = useState({
@@ -166,7 +167,9 @@ function App() {
         </div>
       ) : (
         <>
-          <div>Already Submitted</div>
+          <div className="form-submitted">
+            <FormSubmitted />
+          </div>
         </>
       )}
     </>
