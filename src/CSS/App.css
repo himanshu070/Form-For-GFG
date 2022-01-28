@@ -24,6 +24,13 @@
     width: 30vw;
     justify-content: center;
 }
+#form-sucess{
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+}
 .form-hidden{
     display: none;
     opacity: 0;
