@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from "react";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
@@ -6,68 +6,30 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormGroup from "@mui/material/FormGroup";
 import Checkbox from "@mui/material/Checkbox";
 
-
-
 const CheckCard = ({ title, value, setInputVal, name }) => {
-    
-    const [val, changeVal] = React.useState({
-        one: false,
-        two: false,
-        three: true
+  const [Marketing, setMarketing] = useState(false);
+  const [Content, setContent] = useState(true);
+  const [UIUX, setUIUX] = useState(false);
+
+
+  // Fucntion For Changing Input value 
+  const inputHandler = () => {
+    let array = [];
+    if (Marketing) array.push("Marketing");
+    if (Content) array.push("Content");
+    if (UIUX) array.push("UI/UX");
+
+    setInputVal({
+      ...value,
+      domain: array,
     });
-    
-    // const handleChange1 = (e)=>{
-    //    setInputVal({
-    //      ...value,
-    //      [name]: e.target.value
-    //    })
-    // }
+  };
 
-    // const handleChange2 = (e) => {
-    //   setInputVal({
-    //     ...value,
-    //     [name]: e.target.value,
-    //   });
-    // };
+  // Use Effect Depended On CheckBox
+  React.useEffect(() => {
+    inputHandler();
+  }, [Marketing, Content, UIUX]);
 
-    // const handleChange3 = (e) => {
-    //   setInputVal({
-    //     ...value,
-    //     [name]: e.target.value,
-    //   });
-    // };
-
-    const toggle1 = (e)=>{
-      changeVal({
-        ...val,
-        one: !val.one
-      })
-       setInputVal({
-         ...value,
-         name: e.target.value,
-       });
-    }
-    const toggle2 = (e) => {
-      changeVal({
-        ...val,
-        two: !val.two,
-      });
-       setInputVal({
-         ...value,
-         [name]: e.target.value,
-       });
-    };
-    const toggle3 = (e) => {
-      changeVal({
-        ...val,
-        three: !val.three,
-      });
-       setInputVal({
-         ...value,
-         [name]: e.target.value,
-       });
-    };
-    
   return (
     <>
       <div id="card-div">
@@ -83,22 +45,21 @@ const CheckCard = ({ title, value, setInputVal, name }) => {
               <div className="check-list">
                 <FormGroup>
                   <FormControlLabel
-                    control={<Checkbox defaultChecked />}
-                    checked={val.one}
+                    control={<Checkbox />}
                     label="Marketing"
-                    onChange={(toggle1)}
+                    onChange={(e) => setMarketing(e.target.checked)}
                   />
                   <FormControlLabel
-                    control={<Checkbox defaultChecked />}
-                    checked={val.two}
+                    control={<Checkbox />}
+                    defaultChecked={false}
                     label="Content"
-                    onChange={(toggle2)}
+                    onChange={(e) => setContent(e.target.checked)}
                   />
                   <FormControlLabel
-                    control={<Checkbox defaultChecked />}
-                    checked={val.three}
+                    control={<Checkbox />}
+                    // checked={UIUX}
                     label="UI/UX"
-                    onChange={(toggle3)}
+                    onChange={(e) => setUIUX(e.target.checked)}
                   />
                 </FormGroup>
               </div>
