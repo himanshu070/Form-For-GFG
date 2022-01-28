@@ -6,9 +6,14 @@ import "./CSS/App.css";
 import { useState } from "react";
 import CheckCard from "./Components/CheckCard";
 import Alert from "@mui/material/Alert";
+<<<<<<< HEAD
 import IconButton from "@mui/material/IconButton";
 import Collapse from "@mui/material/Collapse";
 import CloseIcon from "@mui/icons-material/Close";
+=======
+import fetch from "isomorphic-fetch";
+
+>>>>>>> 90faa8a588885084d44aacfc8baf999a7ed8ef9f
 function App() {
   const [inputVal, setInputVal] = useState({
     name: "",
@@ -17,9 +22,8 @@ function App() {
     domain: ["", "", ""],
     discord: "",
   });
-  const [isAlert, setIsAlert] = useState(false)
-  const [isSucess, setIsSucess] = useState(false)
-
+  const [isAlert, setIsAlert] = useState(false);
+  const [isSucess, setIsSucess] = useState(false);
 
   const submit = () => {
     let flag = true;
@@ -44,22 +48,39 @@ function App() {
       flag = false;
     }
     if (!flag) {
-      setIsAlert(true)
-      setIsSucess(false)
+      setIsAlert(true);
+      setIsSucess(false);
     }
 
-    if (flag){
+    if (flag) {
       setIsAlert(false);
-      setIsSucess(true);
-      console.log(inputVal);
-    } 
+
+      fetch(`https://gfgkiit-backend.herokuapp.com/upload-form`, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: inputVal.name,
+          email: inputVal.email,
+          year: inputVal.year,
+          domain: inputVal.domain,
+          discord: inputVal.discord,
+        }),
+      })
+        .then((response) => {
+          setIsSucess(true);
+        })
+        .catch((err) => console.log(err));
+    }
   };
-  
-  const getData = async()=>{
+
+  const getData = async () => {
     let data = await fetch("https://gfgkiit-backend.herokuapp.com/get-forms");
     let parsedData = await data.json();
     console.log(parsedData);
-  }
+  };
 
   return (
     <div className="app-js">
