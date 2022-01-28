@@ -45,4 +45,7 @@
   background-color: #0c0c0cb5;
   position: fixed;
   top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
