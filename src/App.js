@@ -4,13 +4,14 @@ import ToggleCard from "./Components/ToggleCard";
 import Button from "@mui/material/Button";
 import "./CSS/App.css";
 import { useState } from "react";
+import CheckCard from "./Components/CheckCard";
 function App() {
   const [inputVal, setInputVal] = useState({
     name: "",
     email: "",
-    year: "",
-    branch: "",
-    questions: "",
+    year: "First Year",
+    domain: ["", "", ""],
+    discord: "",
   });
 
   const submit = () => {
@@ -30,26 +31,31 @@ function App() {
         setInputVal={setInputVal}
         name="email"
       />
-      <ToggleCard title={"Year"}
+      <ToggleCard
+        title={"Year"}
         value={inputVal}
         setInputVal={setInputVal}
         name="year"
       />
-      <TextCard
-        title={"Branch: *"}
-        value={inputVal}
-        setInputVal={setInputVal}
-        name="branch"
+      <CheckCard
+      title={"Domain"}
+      value={inputVal}
+      setInputVal={setInputVal}
+      name="domain"
       />
       <TextCard
-        title={"Any questions you would like to ask the panelists:"}
+        title={
+          "Discord ID: ( ex: abcdg#1234) (In case you don't have a discord account, please make one. We will be communicating via discord for all team related activities.)"
+        }
         value={inputVal}
         setInputVal={setInputVal}
-        name="questions"
+        name="discord"
       />
-      <Button onClick={submit} variant="contained" color="success">
-        Success
-      </Button>
+      <div className="form-submit-button">
+        <Button onClick={submit} variant="contained" color="success">
+          Submit
+        </Button>
+      </div>
     </div>
   );
 }

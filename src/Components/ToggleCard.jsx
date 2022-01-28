@@ -1,20 +1,19 @@
 import React from 'react';
-import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
-import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
-import RadioButtonCheckedIcon from "@mui/icons-material/RadioButtonChecked";
-import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import CircleIcon from "@mui/icons-material/Circle";
-import CheckCircleTwoToneIcon from "@mui/icons-material/CheckCircleTwoTone";
-import CircleTwoToneIcon from "@mui/icons-material/CircleTwoTone";
-import Checkbox from "@mui/material/Checkbox";
+import Radio from "@mui/material/Radio";
+import RadioGroup from "@mui/material/RadioGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
 
-const ToggleCard = (props) => {
+
+const ToggleCard = ({title, value, setInputVal, name}) => {
+  const handleChange = (e)=>{
+    setInputVal({
+      ...value,
+      [name]: e.target.value
+    })
+  }
   return (
     <>
       <div id="card-div">
@@ -26,33 +25,35 @@ const ToggleCard = (props) => {
               variant="h5"
               component="div"
             >
-              {props.title}
+              {title}
               <div className="toggle-list">
-                <ul className='list-items'>
-                  <li>
-                    <Checkbox
-                      icon={<RadioButtonUncheckedIcon />}
-                      checkedIcon={<RadioButtonCheckedIcon />}
-                    />
-                    First Year
-
-                  </li>
-                  <li> <Checkbox
-                      icon={<RadioButtonUncheckedIcon />}
-                      checkedIcon={<RadioButtonCheckedIcon />}
-                    />
-                    Second Year</li>
-                  <li> <Checkbox
-                      icon={<RadioButtonUncheckedIcon />}
-                      checkedIcon={<RadioButtonCheckedIcon />}
-                    />
-                    Third Year</li>
-                  <li> <Checkbox
-                      icon={<RadioButtonUncheckedIcon />}
-                      checkedIcon={<RadioButtonCheckedIcon />}
-                    />
-                    Fourth Year</li>
-                </ul>
+                <RadioGroup
+                  aria-labelledby="demo-radio-buttons-group-label"
+                  defaultValue="First Year"
+                  name="radio-buttons-group"
+                  onChange={handleChange}
+                >
+                  <FormControlLabel
+                    value="First Year"
+                    control={<Radio />}
+                    label="First Year"
+                  />
+                  <FormControlLabel
+                    value="Second Year"
+                    control={<Radio />}
+                    label="Second Year"
+                  />
+                  <FormControlLabel
+                    value="Third Year"
+                    control={<Radio />}
+                    label="Third Year"
+                  />
+                  <FormControlLabel
+                    value="Fourth Year"
+                    control={<Radio />}
+                    label="Fourth Year"
+                  />
+                </RadioGroup>
               </div>
             </Typography>
           </CardContent>
