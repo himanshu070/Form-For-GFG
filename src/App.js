@@ -6,6 +6,9 @@ import "./CSS/App.css";
 import { useState } from "react";
 import CheckCard from "./Components/CheckCard";
 import Alert from "@mui/material/Alert";
+import IconButton from "@mui/material/IconButton";
+import Collapse from "@mui/material/Collapse";
+import CloseIcon from "@mui/icons-material/Close";
 function App() {
   const [inputVal, setInputVal] = useState({
     name: "",
@@ -66,9 +69,8 @@ function App() {
         </Alert>
       </div>
       <div id="form-sucess" className={isSucess ? "" : "form-hidden"}>
-        <Alert className="form-alert-box" severity="success">
-          Thank you for your submission!
-        </Alert>
+        <Alert onClose={() => {setIsSucess(false)}}>Thanks for your submission!</Alert>
+        
       </div>
       <TextCard
         myId="name"
