@@ -1,0 +1,30 @@
+.body{
+   
+}
+#card-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    margin: 30px;
+}
+#card{
+    display: flex;
+    flex-direction: column;
+    min-width: 60vw;
+    min-height: 20vh;
+    border-radius: 13px;
+}
+.card-title{
+    font-size: 23px;
+    margin-left: -8px;
+    margin-top: 12px;
+}
+.inputField{
+   
+}
+.list-items{
+    list-style: none;
+   padding-left: 0;
+   font-size: 17px;
+}
