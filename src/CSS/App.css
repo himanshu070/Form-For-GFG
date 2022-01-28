@@ -12,3 +12,19 @@
     margin-bottom: 20px;
     margin-top: -10px;
 }
+#form-alert{
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    
+}
+.form-alert-box{
+    width: 30vw;
+    justify-content: center;
+}
+.form-hidden{
+    display: none;
+    opacity: 0;
+}

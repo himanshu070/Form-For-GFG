@@ -20,7 +20,7 @@ const CheckCard = ({ title, value, setInputVal, name }) => {
 
     setInputVal({
       ...value,
-      name: array,
+      [name]: array,
     });
   };
 

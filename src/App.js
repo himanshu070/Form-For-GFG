@@ -5,6 +5,7 @@ import Button from "@mui/material/Button";
 import "./CSS/App.css";
 import { useState } from "react";
 import CheckCard from "./Components/CheckCard";
+import Alert from "@mui/material/Alert";
 function App() {
   const [inputVal, setInputVal] = useState({
     name: "",
@@ -13,20 +14,62 @@ function App() {
     domain: ["", "", ""],
     discord: "",
   });
+  const [isAlert, setIsAlert] = useState(false)
+  const [isSucess, setIsSucess] = useState(false)
+
 
   const submit = () => {
+    let flag = true;
     if (!inputVal.name) {
       // document.getElementsByClassName("name")
       document.getElementById("name").classList.add("error");
+      flag = false;
     }
     if (!inputVal.email) {
       // document.getElementsByClassName("name")
       document.getElementById("email").classList.add("error");
+      flag = false;
     }
-    console.log(inputVal);
+    if (!inputVal.domain) {
+      // document.getElementsByClassName("name")
+      document.getElementById("domain").classList.add("error");
+      flag = false;
+    }
+    if (!inputVal.discord) {
+      // document.getElementsByClassName("name")
+      document.getElementById("discord").classList.add("error");
+      flag = false;
+    }
+    if (!flag) {
+      setIsAlert(true)
+      setIsSucess(false)
+    }
+
+    if (flag){
+      setIsAlert(false);
+      setIsSucess(true);
+      console.log(inputVal);
+    } 
   };
+  
+  const getData = async()=>{
+    let data = await fetch("https://gfgkiit-backend.herokuapp.com/get-forms");
+    let parsedData = await data.json();
+    console.log(parsedData);
+  }
+
   return (
     <div className="app-js">
+      <div id="form-alert" className={isAlert ? "" : "form-hidden"}>
+        <Alert className="form-alert-box" severity="error">
+          Please fill all the fields
+        </Alert>
+      </div>
+      <div id="form-sucess" className={isSucess ? "" : "form-hidden"}>
+        <Alert className="form-alert-box" severity="success">
+          Thank you for your submission!
+        </Alert>
+      </div>
       <TextCard
         myId="name"
         title={"Name *"}
@@ -42,12 +85,14 @@ function App() {
         name="email"
       />
       <ToggleCard
+        myId="year"
         title={"Year"}
         value={inputVal}
         setInputVal={setInputVal}
         name="year"
       />
       <CheckCard
+        myId="domain"
         title={"Domain"}
         value={inputVal}
         setInputVal={setInputVal}
@@ -65,6 +110,9 @@ function App() {
       <div className="form-submit-button">
         <Button onClick={submit} variant="contained" color="success">
           Submit
+        </Button>
+        <Button onClick={getData} variant="contained" color="success">
+          Get Data
         </Button>
       </div>
     </div>
