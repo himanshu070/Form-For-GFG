@@ -37,3 +37,12 @@
     transform: rotate(360deg);
   }
 }
+
+/* Loading Bar */
+.form-loading{
+  width: 100vw;
+  height: 100vh;
+  background-color: #0c0c0cb5;
+  position: fixed;
+  top: 0;
+}

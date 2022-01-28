@@ -7,6 +7,7 @@ import { useState } from "react";
 import CheckCard from "./Components/CheckCard";
 import Alert from "@mui/material/Alert";
 import fetch from "isomorphic-fetch";
+import Loading from "./Components/Loading";
 
 function App() {
   const [inputVal, setInputVal] = useState({
@@ -18,32 +19,39 @@ function App() {
   });
   const [isAlert, setIsAlert] = useState(false);
   const [isSucess, setIsSucess] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const submit = () => {
+    setIsLoading(true);
     let flag = true;
     if (!inputVal.name) {
       // document.getElementsByClassName("name")
       document.getElementById("name").classList.add("error");
       flag = false;
+      setIsLoading(false);
     }
     if (!inputVal.email) {
       // document.getElementsByClassName("name")
       document.getElementById("email").classList.add("error");
       flag = false;
+      setIsLoading(false);
     }
     if (!inputVal.domain) {
       // document.getElementsByClassName("name")
       document.getElementById("domain").classList.add("error");
       flag = false;
+      setIsLoading(false);
     }
     if (!inputVal.discord) {
       // document.getElementsByClassName("name")
       document.getElementById("discord").classList.add("error");
       flag = false;
+      setIsLoading(false);
     }
     if (!flag) {
       setIsAlert(true);
       setIsSucess(false);
+      setIsLoading(false);
     }
 
     if (flag) {
@@ -65,8 +73,12 @@ function App() {
       })
         .then((response) => {
           setIsSucess(true);
+          setIsLoading(false);
         })
-        .catch((err) => console.log(err));
+        .catch((err) => {
+          console.log(err);
+          setIsLoading(false);
+        });
     }
   };
 
@@ -84,8 +96,13 @@ function App() {
         </Alert>
       </div>
       <div id="form-sucess" className={isSucess ? "" : "form-hidden"}>
-        <Alert onClose={() => {setIsSucess(false)}}>Thanks for your submission!</Alert>
-        
+        <Alert
+          onClose={() => {
+            setIsSucess(false);
+          }}
+        >
+          Thanks for your submission!
+        </Alert>
       </div>
       <TextCard
         myId="name"
@@ -132,6 +149,7 @@ function App() {
           Get Data
         </Button>
       </div>
+      {isLoading ? <Loading /> : ""}
     </div>
   );
 }
