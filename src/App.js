@@ -6,14 +6,8 @@ import "./CSS/App.css";
 import { useState } from "react";
 import CheckCard from "./Components/CheckCard";
 import Alert from "@mui/material/Alert";
-<<<<<<< HEAD
-import IconButton from "@mui/material/IconButton";
-import Collapse from "@mui/material/Collapse";
-import CloseIcon from "@mui/icons-material/Close";
-=======
 import fetch from "isomorphic-fetch";
 
->>>>>>> 90faa8a588885084d44aacfc8baf999a7ed8ef9f
 function App() {
   const [inputVal, setInputVal] = useState({
     name: "",
