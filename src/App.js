@@ -19,7 +19,7 @@ function App() {
     discord: "",
   });
   const [isAlert, setIsAlert] = useState(false);
-  const [isSucess, setIsSucess] = useState(true);
+  const [isSucess, setIsSucess] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isSubmit, setIsSubmit] = useState("");
 
