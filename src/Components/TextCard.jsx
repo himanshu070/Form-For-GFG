@@ -5,17 +5,29 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 import "../CSS/TextCard.css";
-const TextCard = ({ title, value, setInputVal, name }) => {
+const TextCard = ({ title,myId, value, setInputVal, name }) => {
   const handleChange = (e) => {
     setInputVal({
       ...value,
       [name]: e.target.value,
     });
+    console.log();
+    if (!value[name]) {
+      // document.getElementsByClassName("name")
+      document.getElementById(myId).classList.add("error");
+    } else{
+      document.getElementById(myId).classList.remove("error");
+
+      console.log("dgdg")
+    }
+
   };
   return (
     <>
       <div id="card-div">
-        <Card id="card" sx={{ maxWidth: 345 }}>
+      <div id={myId}  >
+
+        <Card id="card"  sx={{ maxWidth: 345 }}>
           <CardContent>
             <Typography
               className="card-title"
@@ -45,6 +57,8 @@ const TextCard = ({ title, value, setInputVal, name }) => {
             
           </inputfield>
         </Card>
+        </div>
+
       </div>
     </>
   );
