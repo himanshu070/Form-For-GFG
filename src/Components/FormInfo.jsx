@@ -26,6 +26,38 @@ const FormInfo = ({ title, content, discordLink, instagramLink, linkedinLink}) =
             >
               {content}
             </Typography>
+            <Typography
+              gutterBottom
+              variant="h5"
+              component="div"
+              fontSize="20px"
+            >
+              Our Links:
+            </Typography>
+            <Typography
+              gutterBottom
+              variant="h5"
+              component="div"
+              fontSize="15px"
+            >
+              <a href="{discordLink}">Discord</a>
+            </Typography>
+            <Typography
+              gutterBottom
+              variant="h5"
+              component="div"
+              fontSize="15px"
+            >
+              <a href="{instagramLink}">Instagram</a>
+            </Typography>
+            <Typography
+              gutterBottom
+              variant="h5"
+              component="div"
+              fontSize="15px"
+            >
+              <a href="{linkedinLink}">LinkedIn</a>
+            </Typography>
           </CardContent>
         </Card>
       </div>
