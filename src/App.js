@@ -124,6 +124,9 @@ function App() {
           <FormInfo
           title={"Recruitment 2022: Phase 1"}
           content={"Bonjour Geeks! Yet to join the gang of cool and fun geeks in KIIT? We backed you up!  Once again GFG-KIIT is back with recruitments. So steel yourselves and get ready to exert all efforts to be on board! For further updates follow us on:"}
+          discordLink={"discord.com"}
+          instagramLink={"instagram.com"}
+          linkedInLink={"linkedin.com"}
           />
           <TextCard
             myId="name"
