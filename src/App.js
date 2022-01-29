@@ -112,6 +112,9 @@ function App() {
       </div>
       {!isSubmit ? (
         <div className="app-js">
+      <div className="designBox" >
+        <div className="form-design-background" ></div>
+      </div>
           <div id="form-alert" className={isAlert ? "" : "form-hidden"}>
             <Alert className="form-alert-box" severity="error">
               Please fill all the fields
