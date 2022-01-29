@@ -2,6 +2,7 @@
   text-align: center;
 }
 
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -39,6 +40,9 @@
 }
 
 /* Loading Bar */
+#root{
+  overflow: hidden;
+}
 .form-loading{
   width: 100vw;
   height: 100vh;
@@ -52,4 +56,22 @@
 .form-submitted{
   display: flex;
   flex-direction: column;
+}
+
+.designBox{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: -1;
+  position: fixed;
+  margin-top: -10vh;
+
+}
+.form-design-background{
+  width:120vw;
+  height: 200px;
+  background-color: rebeccapurple;
+  margin-left: -60px;
+  transform: rotate(-14deg);
 }
