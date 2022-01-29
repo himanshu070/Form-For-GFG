@@ -1,5 +1,6 @@
 import "./App.css";
 import TextCard from "./Components/TextCard";
+import TextCardUnimportant from "./Components/TextCardUnimportant";
 import ToggleCard from "./Components/ToggleCard";
 import Button from "@mui/material/Button";
 import "./CSS/App.css";
@@ -131,14 +132,14 @@ function App() {
           />
           <TextCard
             myId="name"
-            title={"Name *"}
+            title={"Name"}
             value={inputVal}
             setInputVal={setInputVal}
             name="name"
           />
           <TextCard
             myId="email"
-            title={"Email *"}
+            title={"Email"}
             value={inputVal}
             setInputVal={setInputVal}
             name="email"
@@ -157,7 +158,7 @@ function App() {
             setInputVal={setInputVal}
             name="domain"
           />
-          <TextCard
+          <TextCardUnimportant
             myId="discord"
             title={
               "Discord ID: ( ex: abcdg#1234) (In case you don't have a discord account, please make one. We will be communicating via discord for all team related activities.)"

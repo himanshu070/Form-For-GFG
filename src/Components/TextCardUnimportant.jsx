@@ -11,14 +11,6 @@ const TextCard = ({ title, myId, value, setInputVal, name }) => {
       ...value,
       [name]: e.target.value,
     });
-    console.log();
-    if (!value[name]) {
-      // document.getElementsByClassName("name")
-      document.getElementById(myId).classList.add("error");
-    } else {
-      document.getElementById(myId).classList.remove("error");
-
-    }
   };
   return (
     <>
@@ -33,7 +25,6 @@ const TextCard = ({ title, myId, value, setInputVal, name }) => {
                 component="div"
               >
                 {title}
-                <span style={{ color: "red" }}> *</span>
               </Typography>
             </CardContent>
             <inputfield className="inputField">
