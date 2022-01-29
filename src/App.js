@@ -85,24 +85,21 @@ function App() {
           discord: inputVal.discord,
         }),
       })
-        .then((response) => {
-
-          
-
+        .then(() => {
           fetch(`https://gfgkiit-backend.herokuapp.com/sendmail`, {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          mailId: inputVal.email,
-        }).then(()=>{
-          localStorage.setItem("gfgreg", "true");
-          setIsSucess(true);
-          setIsLoading(false);
-        })
-      })
+            method: "POST",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              mailId: inputVal.email,
+            }),
+          }).then(() => {
+            localStorage.setItem("gfgreg", "true");
+            setIsSucess(true);
+            setIsLoading(false);
+          })
         })
         .catch((err) => {
           console.log(err);
