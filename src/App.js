@@ -20,7 +20,6 @@ function App() {
     domain: [],
     discord: "",
   });
-  const [isAlert, setIsAlert] = useState(false);
   const [isSucess, setIsSucess] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isSubmit, setIsSubmit] = useState("");
@@ -33,36 +32,33 @@ function App() {
       document.getElementById("name").classList.add("error");
       flag = false;
       setIsLoading(false);
-      document.getElementById('name').scrollIntoView({
-        behavior: 'smooth'
+      document.getElementById("name").scrollIntoView({
+        behavior: "smooth",
       });
-      setIsAlert(true);
 
-      return ;
+      return;
     }
     if (!inputVal.email) {
       // document.getElementsByClassName("name")
       document.getElementById("email").classList.add("error");
       flag = false;
       setIsLoading(false);
-      document.getElementById('email').scrollIntoView({
-        behavior: 'smooth'
+      document.getElementById("email").scrollIntoView({
+        behavior: "smooth",
       });
-      setIsAlert(true);
 
-      return ;
+      return;
     }
     if (inputVal.domain.length == 0) {
       // document.getElementsByClassName("name")
       document.getElementById("domain").classList.add("error");
       flag = false;
       setIsLoading(false);
-      document.getElementById('domain').scrollIntoView({
-        behavior: 'smooth'
+      document.getElementById("domain").scrollIntoView({
+        behavior: "smooth",
       });
-      setIsAlert(true);
 
-      return ;
+      return;
     }
     // if (!inputVal.discord) {
     //   document.getElementById("discord").classList.add("error");
@@ -75,8 +71,6 @@ function App() {
     }
 
     if (flag) {
-      setIsAlert(false);
-
       fetch(`https://gfgkiit-backend.herokuapp.com/upload-form`, {
         method: "POST",
         headers: {
@@ -131,20 +125,18 @@ function App() {
       </div>
       {!isSubmit ? (
         <div className="app-js">
-      <div className="designBox" >
-        <div className="form-design-background" ></div>
-      </div>
-          <div id="form-alert" className={isAlert ? "" : "form-hidden"}>
-            <Alert className="form-alert-box" severity="error">
-              Please fill all the fields
-            </Alert>
+          <div className="designBox">
+            <div className="form-design-background"></div>
           </div>
+
           <FormInfo
-          title={"Recruitment 2022: Phase 1"}
-          content={"Bonjour Geeks! Yet to join the gang of cool and fun geeks in KIIT? We backed you up!  Once again GFG-KIIT is back with recruitments. So steel yourselves and get ready to exert all efforts to be on board! For further updates follow us on:"}
-          discordLink={"discord.com"}
-          instagramLink={"instagram.com"}
-          linkedInLink={"linkedin.com"}
+            title={"Recruitment 2022: Phase 1"}
+            content={
+              "Bonjour Geeks! Yet to join the gang of cool and fun geeks in KIIT? We backed you up!  Once again GFG-KIIT is back with recruitments. So steel yourselves and get ready to exert all efforts to be on board! For further updates follow us on:"
+            }
+            discordLink={"discord.com"}
+            instagramLink={"instagram.com"}
+            linkedInLink={"linkedin.com"}
           />
           <TextCard
             myId="name"
