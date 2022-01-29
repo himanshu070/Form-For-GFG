@@ -33,19 +33,36 @@ function App() {
       document.getElementById("name").classList.add("error");
       flag = false;
       setIsLoading(false);
-      document.getElementById('name').scrollIntoView();
+      document.getElementById('name').scrollIntoView({
+        behavior: 'smooth'
+      });
+      setIsAlert(true);
+
+      return ;
     }
     if (!inputVal.email) {
       // document.getElementsByClassName("name")
       document.getElementById("email").classList.add("error");
       flag = false;
       setIsLoading(false);
+      document.getElementById('email').scrollIntoView({
+        behavior: 'smooth'
+      });
+      setIsAlert(true);
+
+      return ;
     }
     if (inputVal.domain.length == 0) {
       // document.getElementsByClassName("name")
       document.getElementById("domain").classList.add("error");
       flag = false;
       setIsLoading(false);
+      document.getElementById('domain').scrollIntoView({
+        behavior: 'smooth'
+      });
+      setIsAlert(true);
+
+      return ;
     }
     // if (!inputVal.discord) {
     //   document.getElementById("discord").classList.add("error");
@@ -53,7 +70,6 @@ function App() {
     //   setIsLoading(false);
     // }
     if (!flag) {
-      setIsAlert(true);
       setIsSucess(false);
       setIsLoading(false);
     }
