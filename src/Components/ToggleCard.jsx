@@ -25,6 +25,7 @@ const ToggleCard = ({ title, value, setInputVal, name }) => {
               component="div"
             >
               {title}
+              <span style={{ color: "red" }}> *</span>
               <div className="toggle-list">
                 <RadioGroup
                   aria-labelledby="demo-radio-buttons-group-label"

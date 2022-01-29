@@ -131,14 +131,14 @@ function App() {
           />
           <TextCard
             myId="name"
-            title={"Name *"}
+            title={"Name"}
             value={inputVal}
             setInputVal={setInputVal}
             name="name"
           />
           <TextCard
             myId="email"
-            title={"Email *"}
+            title={"Email"}
             value={inputVal}
             setInputVal={setInputVal}
             name="email"

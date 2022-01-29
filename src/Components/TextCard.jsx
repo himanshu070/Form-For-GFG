@@ -34,6 +34,7 @@ const TextCard = ({ title, myId, value, setInputVal, name }) => {
                 component="div"
               >
                 {title}
+                <span style={{ color: "red" }}> *</span>
               </Typography>
             </CardContent>
             <inputfield className="inputField">

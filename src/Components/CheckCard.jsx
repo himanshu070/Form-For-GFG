@@ -42,6 +42,7 @@ const CheckCard = ({ title, value, setInputVal, name, myId }) => {
                 component="div"
               >
                 {title}
+                <span style={{ color: "red" }}> *</span>
                 <div className="check-list">
                   <FormGroup>
                     <FormControlLabel
