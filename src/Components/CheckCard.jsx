@@ -6,7 +6,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormGroup from "@mui/material/FormGroup";
 import Checkbox from "@mui/material/Checkbox";
 
-const CheckCard = ({ title, value, setInputVal, name }) => {
+const CheckCard = ({ title, value, setInputVal, name, myId }) => {
   const [Marketing, setMarketing] = useState(false);
   const [Content, setContent] = useState(false);
   const [UIUX, setUIUX] = useState(false);
@@ -32,39 +32,41 @@ const CheckCard = ({ title, value, setInputVal, name }) => {
   return (
     <>
       <div id="card-div">
-        <Card id="card" sx={{ maxWidth: 345 }}>
-          <CardContent>
-            <Typography
-              className="card-title"
-              gutterBottom
-              variant="h5"
-              component="div"
-            >
-              {title}
-              <div className="check-list">
-                <FormGroup>
-                  <FormControlLabel
-                    control={<Checkbox />}
-                    label="Marketing"
-                    onChange={(e) => setMarketing(e.target.checked)}
-                  />
-                  <FormControlLabel
-                    control={<Checkbox />}
-                    defaultChecked={false}
-                    label="Content"
-                    onChange={(e) => setContent(e.target.checked)}
-                  />
-                  <FormControlLabel
-                    control={<Checkbox />}
-                    // checked={UIUX}
-                    label="UI/UX"
-                    onChange={(e) => setUIUX(e.target.checked)}
-                  />
-                </FormGroup>
-              </div>
-            </Typography>
-          </CardContent>
-        </Card>
+        <div id={myId}>
+          <Card id="card" sx={{ maxWidth: 345 }}>
+            <CardContent>
+              <Typography
+                className="card-title"
+                gutterBottom
+                variant="h5"
+                component="div"
+              >
+                {title}
+                <div className="check-list">
+                  <FormGroup>
+                    <FormControlLabel
+                      control={<Checkbox />}
+                      label="Marketing"
+                      onChange={(e) => setMarketing(e.target.checked)}
+                    />
+                    <FormControlLabel
+                      control={<Checkbox />}
+                      defaultChecked={false}
+                      label="Content"
+                      onChange={(e) => setContent(e.target.checked)}
+                    />
+                    <FormControlLabel
+                      control={<Checkbox />}
+                      // checked={UIUX}
+                      label="UI/UX"
+                      onChange={(e) => setUIUX(e.target.checked)}
+                    />
+                  </FormGroup>
+                </div>
+              </Typography>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </>
   );

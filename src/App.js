@@ -16,7 +16,7 @@ function App() {
     name: "",
     email: "",
     year: "First Year",
-    domain: ["", "", ""],
+    domain: [],
     discord: "",
   });
   const [isAlert, setIsAlert] = useState(false);
@@ -39,18 +39,17 @@ function App() {
       flag = false;
       setIsLoading(false);
     }
-    if (!inputVal.domain) {
+    if (inputVal.domain.length == 0) {
       // document.getElementsByClassName("name")
       document.getElementById("domain").classList.add("error");
       flag = false;
       setIsLoading(false);
     }
-    if (!inputVal.discord) {
-      // document.getElementsByClassName("name")
-      document.getElementById("discord").classList.add("error");
-      flag = false;
-      setIsLoading(false);
-    }
+    // if (!inputVal.discord) {
+    //   document.getElementById("discord").classList.add("error");
+    //   flag = false;
+    //   setIsLoading(false);
+    // }
     if (!flag) {
       setIsAlert(true);
       setIsSucess(false);
@@ -83,6 +82,7 @@ function App() {
           console.log(err);
           setIsLoading(false);
         });
+      // console.log(inputVal);
     }
   };
 
