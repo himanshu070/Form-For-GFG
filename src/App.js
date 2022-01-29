@@ -9,6 +9,7 @@ import Alert from "@mui/material/Alert";
 import fetch from "isomorphic-fetch";
 import Loading from "./Components/Loading";
 import FormSubmitted from "./Components/FormSubmitted";
+import FormInfo from "./Components/FormInfo";
 
 function App() {
   const [inputVal, setInputVal] = useState({
@@ -120,7 +121,10 @@ function App() {
               Please fill all the fields
             </Alert>
           </div>
-
+          <FormInfo
+          title={"Recruitment 2022: Phase 1"}
+          content={"Bonjour Geeks! Yet to join the gang of cool and fun geeks in KIIT? We backed you up!  Once again GFG-KIIT is back with recruitments. So steel yourselves and get ready to exert all efforts to be on board! For further updates follow us on:"}
+          />
           <TextCard
             myId="name"
             title={"Name *"}

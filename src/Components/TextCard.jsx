@@ -5,7 +5,7 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 import "../CSS/TextCard.css";
-const TextCard = ({ title,myId, value, setInputVal, name }) => {
+const TextCard = ({ title, myId, value, setInputVal, name }) => {
   const handleChange = (e) => {
     setInputVal({
       ...value,
@@ -15,49 +15,46 @@ const TextCard = ({ title,myId, value, setInputVal, name }) => {
     if (!value[name]) {
       // document.getElementsByClassName("name")
       document.getElementById(myId).classList.add("error");
-    } else{
+    } else {
       document.getElementById(myId).classList.remove("error");
 
-      console.log("dgdg")
+      console.log("dgdg");
     }
   };
   return (
     <>
       <div id="card-div">
-      <div id={myId}  >
-
-        <Card id="card"  sx={{ maxWidth: 345 }}>
-          <CardContent>
-            <Typography
-              className="card-title"
-              gutterBottom
-              variant="h5"
-              component="div"
-            >
-              {title}
-            </Typography>
-          </CardContent>
-          <inputfield className="inputField">
-            <Box
-              component="form"
-              sx={{
-                "& > :not(style)": { m: 1, width: "25ch" },
-              }}
-              noValidate
-              autoComplete="off"
-            >
-              <TextField
-                id="standard-basic"
-                label="Your answer"
-                variant="standard"
-                onChange={handleChange}
-              />
-            </Box>
-            
-          </inputfield>
-        </Card>
+        <div id={myId}>
+          <Card id="card" sx={{ maxWidth: 345 }}>
+            <CardContent>
+              <Typography
+                className="card-title"
+                gutterBottom
+                variant="h5"
+                component="div"
+              >
+                {title}
+              </Typography>
+            </CardContent>
+            <inputfield className="inputField">
+              <Box
+                component="form"
+                sx={{
+                  "& > :not(style)": { m: 1, width: "25ch" },
+                }}
+                noValidate
+                autoComplete="off"
+              >
+                <TextField
+                  id="standard-basic"
+                  label="Your answer"
+                  variant="standard"
+                  onChange={handleChange}
+                />
+              </Box>
+            </inputfield>
+          </Card>
         </div>
-
       </div>
     </>
   );
