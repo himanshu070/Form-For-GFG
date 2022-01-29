@@ -86,9 +86,21 @@ function App() {
         }),
       })
         .then((response) => {
+
           localStorage.setItem("gfgreg", "true");
           setIsSucess(true);
           setIsLoading(false);
+
+          fetch(`https://gfgkiit-backend.herokuapp.com/sendmail`, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          mailId: inputVal.email,
+        })
+      })
         })
         .catch((err) => {
           console.log(err);
