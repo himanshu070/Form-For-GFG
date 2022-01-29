@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import Instagram from "@mui/icons-material/Instagram";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 const FormInfo = ({ title, content, discordLink, instagramLink, linkedinLink}) => {
   return (
@@ -48,7 +51,7 @@ const FormInfo = ({ title, content, discordLink, instagramLink, linkedinLink}) =
               component="div"
               fontSize="15px"
             >
-              <a href="{instagramLink}">Instagram</a>
+              <a href="{instagramLink}"><InstagramIcon/></a>
             </Typography>
             <Typography
               gutterBottom
@@ -56,7 +59,7 @@ const FormInfo = ({ title, content, discordLink, instagramLink, linkedinLink}) =
               component="div"
               fontSize="15px"
             >
-              <a href="{linkedinLink}">LinkedIn</a>
+              <a href="{linkedinLink}"><LinkedInIcon/></a>
             </Typography>
           </CardContent>
         </Card>
