@@ -18,7 +18,6 @@ const TextCard = ({ title, myId, value, setInputVal, name }) => {
     } else {
       document.getElementById(myId).classList.remove("error");
 
-      console.log("dgdg");
     }
   };
   return (
