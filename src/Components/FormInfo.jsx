@@ -3,7 +3,7 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 
-const FormInfo = ({title, content}) => {
+const FormInfo = ({ title, content, discordLink, instagramLink, linkedinLink}) => {
   return (
     <>
       <div id="card-div">
