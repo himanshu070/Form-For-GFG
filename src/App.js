@@ -32,6 +32,7 @@ function App() {
       document.getElementById("name").classList.add("error");
       flag = false;
       setIsLoading(false);
+      document.getElementById('name').scrollIntoView();
     }
     if (!inputVal.email) {
       // document.getElementsByClassName("name")
